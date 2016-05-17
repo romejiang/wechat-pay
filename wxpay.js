@@ -14,7 +14,6 @@ WXPay = (function buildAPI(){
              appid:config.appId, mch_id: config.mchId 
             }
 
-            //this.showConfig();
             var unifiedorderUrl="https://api.mch.weixin.qq.com/pay/unifiedorder";
             opts.nonce_str = opts.nonce_str || WxPayUtil.generateNonceString();
             
@@ -22,7 +21,6 @@ WXPay = (function buildAPI(){
             opts.sign = this.sign(opts);
            
             var postXml= WxPayUtil.buildXML({xml:opts});
-            // console.log(postXml);
             Meteor.http.post(unifiedorderUrl, {content :postXml},function(error,response){
                 if ( response.statusCode === 200 ){
                     WxPayUtil.parseXML(response.content, fn);

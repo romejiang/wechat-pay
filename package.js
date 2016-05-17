@@ -1,6 +1,6 @@
 Package.describe({
   name: 'romejiang:wechat-pay',
-  version: '0.1',
+  version: '1.0.2',
   // Brief, one-line summary of the package.
   summary: 'This is a library to use weixin pay',
   // URL to the Git repository containing the source code for this package.
@@ -19,8 +19,8 @@ Package.onUse(function(api) {
     'underscore',
     'http',
     'service-configuration',
-    'peerlibrary:xml2js',
-    "jparker:crypto-md5"
+    'peerlibrary:xml2js@0.4.8_1',
+    "jparker:crypto-md5@0.1.1"
   ]);
 
   api.addFiles([
@@ -37,6 +37,6 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('hanagm:wxpay');
+  api.use('romejiang:wechat-pay');
   api.addFiles('wxpay-tests.js');
 });
